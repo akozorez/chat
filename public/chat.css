@@ -1,0 +1,117 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
+}
+input{
+	border: 0;
+	background: transparent;
+}
+header{
+	height: 104px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #fbfbfb;
+	border-bottom:1px solid #cecece55;
+	z-index: 5;
+}
+form{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 66px;
+	background: #fbfbfb;
+}
+.chat{
+	margin-top: 105px;
+	height: calc( 100vh - 105px - 66px);
+    overflow-x: auto;
+}
+fieldset{
+	border: 0;
+	border-top: 1px solid #cecece55;
+	padding: 0;
+	margin: 0;
+}
+fieldset[disabled="disabled"] input{
+	cursor: no-drop;
+}
+fieldset input{
+	font-family: 'Roboto', sans-serif;
+	position: relative;
+	width: 100%;
+	padding: 20px;
+	font-size: 20px;
+	border: 0;
+}
+fieldset input:focus{
+	outline: none;
+	background: #eaeaea;
+}
+h1{
+    text-align: center;
+    font-size: 20pt;
+	text-transform: uppercase;
+	margin: 0;
+	padding-top: 20pt;
+}
+.welcome{
+	text-align: center;
+	font-size: 12pt;
+	margin: 0;
+	padding-bottom: 20pt;
+}
+.online-counter {
+    position: fixed;
+    width: 24pt;
+    height: 24pt;
+    right: 16px;
+    top: calc( 52.5px - 16px);
+    text-align: center;
+    font-size: 12pt;
+    line-height: 2;
+    font-weight: 600;
+}
+.online-counter.disconnected::before{
+	background: #ff4646;
+}
+.online-counter::before{
+	display: block;
+    content: '';
+    clear: both;
+    width: 12pt;
+    height: 12pt;
+    position: absolute;
+    left: -6pt;
+    top: 6pt;
+    border-radius: 50em;
+    background: lightgreen;
+}
+ul{
+	list-style: none;
+	margin: 20px 0;
+	padding: 0;
+}
+ul li{
+	padding: 2.5px 20px;
+}
+.error p{
+	margin:2.5px 0;
+}
+.error {
+    background: #f5f5f5;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+	align-items: center;
+    flex-direction: column;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title %></title>
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../chat.css">
+<body>
+	<header>
+		<div class="online-counter"></div>
+		<h1><%= name %></h1>
+		<p class="welcome"></p>
+	</header>
+	<div class="chat">
+        <ul class="messages"></ul>
+    </div>
+    <form>
+    	<fieldset disabled="disabled">
+      		<input placeholder="New message..."/>
+      	</fieldset>
+	</form>
+	<div class="error">
+		<p class="error-text"></p>
+	</div>
+	<script src="../socket.io.js"></script>
+	<script src="../client.js"></script>
+</body>
+</html>

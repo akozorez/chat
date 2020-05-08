@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> <%= title %> </title>
+</head>
+<body>
+	<% if(!isAuth){ %>
+	<form>
+		<input type="text" name="login">
+		<input type="password" name="password">
+		<input type="submit" value="Войти">
+		<ol></ol>
+	</form>
+
+	<div id="hello"></div>
+
+	<script>
+	document.addEventListener('DOMContentLoaded', () => {
+	    document.querySelector('form').onsubmit = function(e) {
+	        e.preventDefault();
+	        const login = document.querySelector('input[name="login"]').value;
+	        const password = document.querySelector('input[name="password"]').value;
+	        fetch('/login', {
+	                method: 'POST',
+	                headers: {
+	                    'Content-Type': 'application/json'
+	                },
+	                body: JSON.stringify({
+	                    login: login,
+	                    password: password
+	                })
+	            })
+	            .then(res => res.json())
+	            .then(data => {
+	                if(data.code !== 200) {
+	                	const li = document.createElement('li');
+	                	li.innerText = data.msg;
+	                	li.setAttribute('style', 'font-weight:600; color:red;');
+	                	document.querySelector('ol').append(li);
+	                }else{
+	                	location.reload();
+	                }
+	            })
+	    }
+	});
+	</script>
+	<% }else{ %>
+	<span>Добро пожаловать, <%= login %>! <br><a href="/chat/anime">Чат[комната = аниме]</a> | <a href="/chat/dota">Чат[комната = дота]</a> | <a href="/logout" class="no-reload">Выйти</a></span>
+
+	<% } %>
+</body>
+</html>
